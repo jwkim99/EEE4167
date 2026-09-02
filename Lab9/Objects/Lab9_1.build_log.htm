@@ -1,0 +1,158 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: •ÏVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Kim JoonWon, Sogang University, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DARMSTM.DLL V1.69.1.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\EEE4167\Lab9\Lab9_1.uvprojx
+Project File Date:  06/14/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+Lab9_1.c(1): warning: In file included from...
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+Lab9_1.c(3): warning: no previous extern declaration for non-static variable 'font8x8' [-Wmissing-variable-declarations]
+u8 font8x8[16][8]={
+   ^
+Lab9_1.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 font8x8[16][8]={
+^
+Lab9_1.c(21): warning: no previous extern declaration for non-static variable 'revfont8x8' [-Wmissing-variable-declarations]
+u8 revfont8x8[16][8]={
+   ^
+Lab9_1.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 revfont8x8[16][8]={
+^
+Lab9_1.c(40): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
+u8 data = 0xF;
+   ^
+Lab9_1.c(40): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 data = 0xF;
+^
+Lab9_1.c(79): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                while (1){;}
+                          ^
+Lab9_1.c(82): warning: no previous prototype for function 'TIM1_UP_IRQHandler' [-Wmissing-prototypes]
+void TIM1_UP_IRQHandler (void){
+     ^
+Lab9_1.c(82): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM1_UP_IRQHandler (void){
+^
+static 
+Lab9_1.c(113): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+Lab9_1.c(94): warning: no previous prototype for function 'TIM3_IRQHandler' [-Wmissing-prototypes]
+void TIM3_IRQHandler (void) {
+     ^
+Lab9_1.c(94): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM3_IRQHandler (void) {
+^
+static 
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'row' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+    ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'col' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+         ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'i' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+              ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'key_row' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+                 ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'key_col' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+                          ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'key_scan' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+                                   ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+Lab9_1.c(41): warning: no previous extern declaration for non-static variable 'key_index' [-Wmissing-variable-declarations]
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+                                             ^
+Lab9_1.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 row, col, i, key_row, key_col, key_scan, key_index;
+^
+17 warnings generated.
+compiling Lab9_1.c...
+linking...
+Program Size: Code=1516 RO-data=268 RW-data=132 ZI-data=1664  
+".\Objects\Lab9_1.axf" - 0 Error(s), 17 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103RB
+  ./RTE/_Target_1
+  C:/Users/jwkim/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+      Source file:   Device/Source/system_stm32f10x.c
+      Include file:  RTE_Driver/Config/RTE_Device.h
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

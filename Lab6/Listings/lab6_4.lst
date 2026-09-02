@@ -1,0 +1,106 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             lab6_4, code
+    2 00000000                 export           fill_array
+    3 00000000                 export           fill_pointer
+    4 00000000                 entry
+    5 00000000         ;
+    6 00000000         ;  fill_array(int array[], int size, int pattern)
+    7 00000000         ;  {  int i;
+    8 00000000         ;    for (i = 0; i < size; i += 1)
+    9 00000000         ;      array[i] = pattern;
+   10 00000000         ;  }
+   11 00000000         fill_array
+                               proc
+   12 00000000 B50F            push             {r0-r3, lr}
+   13 00000002 9805            ldr              r0, [sp, #0x14] ;ARRAY_BASE
+   14 00000004 9906            ldr              r1, [sp, #0x18] ;ARRAY_SIZE
+   15 00000006 9A07            ldr              r2, [sp, #0x1c] ;FILL_PATTERN
+   16 00000008 F04F 0300       mov              r3, #0
+   17 0000000C F840 2023 
+                       lp1     str              r2, [r0, r3, LSL #2]
+   18 00000010 F103 0301       add              r3, #1
+   19 00000014 428B            cmp              r3, r1
+   20 00000016 DBF9            blt              lp1
+   21 00000018 BD0F            pop              {r0-r3,pc}
+   22 0000001A                 endp
+   23 0000001A         ;
+   24 0000001A         ;  fill_pointer(int *array, int size, int pattern)
+   25 0000001A         ;  {  int *p;
+   26 0000001A         ;    for (p = &array[0]; p < &array[size]; p = p + 1)
+   27 0000001A         ;      *p = pattern;
+   28 0000001A         ;  }
+   29 0000001A         fill_pointer
+                               proc
+   30 0000001A B50F            push             {r0-r3,lr}
+   31 0000001C 9805            ldr              r0, [sp,#0x14] ;ARRAY_BASE
+   32 0000001E 9906            ldr              r1, [sp,#0x18] ;ARRAY_SIZE
+   33 00000020 9A07            ldr              r2, [sp,#0x1c] ;ARRAY_SIZE
+   34 00000022 EB00 0381       add              r3, r0, r1, LSL #2
+   35 00000026 F840 2B04 
+                       lp2     str              r2, [r0], #4
+   36 0000002A 4298            cmp              r0, r3
+   37 0000002C DBFB            blt              lp2
+   38 0000002E BD0F            pop              {r0-r3,pc}
+   39 00000030                 endp
+   40 00000030                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab6_4.d -o.\objects\lab6_4.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab6_4.lst Lab6_4
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+fill_array 00000000
+
+Symbol: fill_array
+   Definitions
+      At line 11 in file Lab6_4.s
+   Uses
+      At line 2 in file Lab6_4.s
+Comment: fill_array used once
+fill_pointer 0000001A
+
+Symbol: fill_pointer
+   Definitions
+      At line 29 in file Lab6_4.s
+   Uses
+      At line 3 in file Lab6_4.s
+Comment: fill_pointer used once
+lab6_4 00000000
+
+Symbol: lab6_4
+   Definitions
+      At line 1 in file Lab6_4.s
+   Uses
+      None
+Comment: lab6_4 unused
+lp1 0000000C
+
+Symbol: lp1
+   Definitions
+      At line 17 in file Lab6_4.s
+   Uses
+      At line 20 in file Lab6_4.s
+Comment: lp1 used once
+lp2 00000026
+
+Symbol: lp2
+   Definitions
+      At line 35 in file Lab6_4.s
+   Uses
+      At line 37 in file Lab6_4.s
+Comment: lp2 used once
+5 symbols
+340 symbols in table

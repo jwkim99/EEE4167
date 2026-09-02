@@ -1,0 +1,313 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: •ÏVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Kim JoonWon, Sogang University, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\EEE4167\Project\Project_20181501.uvprojx
+Project File Date:  06/10/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(1): warning: In file included from...
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+main.c(42): warning: no previous extern declaration for non-static variable 'font5x4' [-Wmissing-variable-declarations]
+u8 font5x4 [18][5] = {  // font data
+   ^
+main.c(42): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 font5x4 [18][5] = {  // font data
+^
+main.c(62): warning: no previous extern declaration for non-static variable 'mode' [-Wmissing-variable-declarations]
+Type_mode mode = Time_Disp;
+          ^
+main.c(62): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Type_mode mode = Time_Disp;
+^
+main.c(66): warning: no previous extern declaration for non-static variable 'brightness' [-Wmissing-variable-declarations]
+u32 brightness = 8000;  // Display brightness
+    ^
+main.c(66): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 brightness = 8000;  // Display brightness
+^
+main.c(67): warning: no previous extern declaration for non-static variable 'n_digit' [-Wmissing-variable-declarations]
+u8      n_digit = 10;                                           // Total number of display contents
+        ^
+main.c(67): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      n_digit = 10;                                           // Total number of display contents
+^
+main.c(75): warning: no previous extern declaration for non-static variable 'Base_Time' [-Wmissing-variable-declarations]
+Struct_time     Base_Time = {1, 12, 0, 0};      // Current Time
+                ^
+main.c(75): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Struct_time     Base_Time = {1, 12, 0, 0};      // Current Time
+^
+main.c(81): warning: no previous extern declaration for non-static variable 'ADC_ILL' [-Wmissing-variable-declarations]
+u16     ADC_ILL = 8000;                 // ADC value of GL5537
+        ^
+main.c(81): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u16     ADC_ILL = 8000;                 // ADC value of GL5537
+^
+main.c(195): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[3] = Disp_TMP / 1000;
+                                             ~ ~~~~~~~~~^~~~~~
+main.c(196): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[2] = Disp_TMP / 100 - N[3]*10;
+                                             ~ ~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(197): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[1] = Disp_TMP /10 - N[3]*100 - N[2]*10;
+                                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(198): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[0] = Disp_TMP - N[3]*1000 - N[2]*100 - N[1]*10;
+                                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(215): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[3] = Disp_ILL / 1000;
+                                             ~ ~~~~~~~~~^~~~~~
+main.c(216): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[2] = Disp_ILL / 100 - N[3]*10;
+                                             ~ ~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(217): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[1] = Disp_ILL /10 - N[3]*100 - N[2]*10;
+                                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(218): warning: implicit conversion loses integer precision: 'unsigned int' to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                        N[0] = Disp_ILL - N[3]*1000 - N[2]*100 - N[1]*10;
+                                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+main.c(299): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                                ADC_TMP = ADC1->DR;
+                                        ~ ~~~~~~^~
+main.c(300): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                ADC1->SR &= ~(0x02);
+                                         ~~ ^~~~~~~
+main.c(304): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                                ADC_ILL = ADC1->JDR1;
+                                        ~ ~~~~~~^~~~
+main.c(305): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                ADC1->SR &= ~(0x04);
+                                         ~~ ^~~~~~~
+main.c(297): warning: no previous prototype for function 'ADC1_2_IRQHandler' [-Wmissing-prototypes]
+void ADC1_2_IRQHandler(void) {
+     ^
+main.c(297): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void ADC1_2_IRQHandler(void) {
+^
+static 
+main.c(325): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                                TIM1->CCR2 = (brightness * 550) / 8000 + 40;
+                                           ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+main.c(321): warning: no previous prototype for function 'TIM1_UP_IRQHandler' [-Wmissing-prototypes]
+void TIM1_UP_IRQHandler(void) { // Dot matrix scrolling
+     ^
+main.c(321): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM1_UP_IRQHandler(void) { // Dot matrix scrolling
+^
+static 
+main.c(353): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                GPIOC->ODR &= ~(0xFF);
+                                                           ~~ ^~~~~~~
+main.c(355): warning: implicit conversion loses integer precision: 'u32' (aka 'unsigned int') to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                                                d_col = (display[d_row] >> 4);
+                                                      ~  ~~~~~~~~~~~~~~~^~~~
+main.c(361): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                GPIOC->ODR &= ~(0xFF);
+                                                           ~~ ^~~~~~~
+main.c(347): warning: no previous prototype for function 'TIM1_CC_IRQHandler' [-Wmissing-prototypes]
+void TIM1_CC_IRQHandler(void) { // Dot matrix scanning
+     ^
+main.c(347): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM1_CC_IRQHandler(void) { // Dot matrix scanning
+^
+static 
+main.c(376): warning: no previous prototype for function 'TIM2_IRQHandler' [-Wmissing-prototypes]
+void TIM2_IRQHandler(void) {    // Clock
+     ^
+main.c(376): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM2_IRQHandler(void) {    // Clock
+^
+static 
+main.c(414): warning: & has lower precedence than !=; != will be evaluated first [-Wparentheses]
+                if (TIM3->SR & 0x01 != 0) {                                     // When TIM3_UP interrupt occurs
+                             ^~~~~~~~~~~
+main.c(414): note: place parentheses around the '!=' expression to silence this warning
+                if (TIM3->SR & 0x01 != 0) {                                     // When TIM3_UP interrupt occurs
+                             ^
+                               (        )
+main.c(414): note: place parentheses around the & expression to evaluate it first
+                if (TIM3->SR & 0x01 != 0) {                                     // When TIM3_UP interrupt occurs
+                    ~~~~~~~~~^~~~~~
+main.c(415): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                                key_col = GPIOA->IDR;                                           // Get Key matrix column inputs
+                                        ~ ~~~~~~~^~~
+main.c(411): warning: no previous prototype for function 'TIM3_IRQHandler' [-Wmissing-prototypes]
+void TIM3_IRQHandler(void) {    // Key matrix scanning
+     ^
+main.c(411): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM3_IRQHandler(void) {    // Key matrix scanning
+^
+static 
+main.c(471): warning: no previous prototype for function 'EXTI0_IRQHandler' [-Wmissing-prototypes]
+void EXTI0_IRQHandler(void) {                   // Valid Key input
+     ^
+main.c(471): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI0_IRQHandler(void) {                   // Valid Key input
+^
+static 
+main.c(64): warning: no previous extern declaration for non-static variable 'display' [-Wmissing-variable-declarations]
+u32 display[5];                                 // Display pattern
+    ^
+main.c(64): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 display[5];                                 // Display pattern
+^
+main.c(65): warning: no previous extern declaration for non-static variable 'digits' [-Wmissing-variable-declarations]
+Type_digit digits[10];  // Display contents
+           ^
+main.c(65): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Type_digit digits[10];  // Display contents
+^
+main.c(68): warning: no previous extern declaration for non-static variable 'disp_idx' [-Wmissing-variable-declarations]
+u8      disp_idx;                                               // Currently displaying digit
+        ^
+main.c(68): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      disp_idx;                                               // Currently displaying digit
+^
+main.c(69): warning: no previous extern declaration for non-static variable 'n_shift' [-Wmissing-variable-declarations]
+u8      n_shift;                                                // Counts of shifting (0 ~ 3)
+        ^
+main.c(69): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      n_shift;                                                // Counts of shifting (0 ~ 3)
+^
+main.c(72): warning: no previous extern declaration for non-static variable 'states' [-Wmissing-variable-declarations]
+u16     states;                                                 // Dot matrix Row7: state representation 
+        ^
+main.c(72): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u16     states;                                                 // Dot matrix Row7: state representation 
+^
+main.c(76): warning: no previous extern declaration for non-static variable 'H' [-Wmissing-variable-declarations]
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+   ^
+main.c(76): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+^
+main.c(76): warning: no previous extern declaration for non-static variable 'M' [-Wmissing-variable-declarations]
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+         ^
+main.c(76): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+^
+main.c(76): warning: no previous extern declaration for non-static variable 'S' [-Wmissing-variable-declarations]
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+               ^
+main.c(76): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+^
+main.c(76): warning: no previous extern declaration for non-static variable 'N' [-Wmissing-variable-declarations]
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+                     ^
+main.c(76): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 H[2], M[2], S[2], N[4];      // Variables to display TIME
+^
+main.c(77): warning: no previous extern declaration for non-static variable 'Mod_Time' [-Wmissing-variable-declarations]
+Struct_time Mod_Time;           // Time to Modify
+            ^
+main.c(77): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Struct_time Mod_Time;           // Time to Modify
+^
+main.c(78): warning: no previous extern declaration for non-static variable 'Disp_TMP' [-Wmissing-variable-declarations]
+u32 Disp_TMP;                                           // Temperature to display
+    ^
+main.c(78): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 Disp_TMP;                                           // Temperature to display
+^
+main.c(79): warning: no previous extern declaration for non-static variable 'Disp_ILL' [-Wmissing-variable-declarations]
+u32 Disp_ILL;                                           // Illumination to display
+    ^
+main.c(79): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 Disp_ILL;                                           // Illumination to display
+^
+main.c(80): warning: no previous extern declaration for non-static variable 'ADC_TMP' [-Wmissing-variable-declarations]
+u16 ADC_TMP;                                            // ADC value of TMP36
+    ^
+main.c(80): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u16 ADC_TMP;                                            // ADC value of TMP36
+^
+main.c(84): warning: no previous extern declaration for non-static variable 'Key_state' [-Wmissing-variable-declarations]
+u8      Key_state;
+        ^
+main.c(84): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      Key_state;
+^
+main.c(85): warning: no previous extern declaration for non-static variable 'Mod_cur' [-Wmissing-variable-declarations]
+u8      Mod_cur;                                                // Cursor to modify
+        ^
+main.c(85): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      Mod_cur;                                                // Cursor to modify
+^
+main.c(86): warning: no previous extern declaration for non-static variable 'Key_cnt' [-Wmissing-variable-declarations]
+u8      Key_cnt;                                                // Time_Set -> Time_Disp if Key_cnt == N;
+        ^
+main.c(86): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8      Key_cnt;                                                // Time_Set -> Time_Disp if Key_cnt == N;
+^
+49 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=7192 RO-data=268 RW-data=104 ZI-data=1712  
+".\Objects\Project_20181501.axf" - 0 Error(s), 49 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103RB
+  ./RTE/_Target_1
+  C:/Users/jwkim/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/system_stm32f10x.c
+      Include file:  RTE_Driver/Config/RTE_Device.h
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

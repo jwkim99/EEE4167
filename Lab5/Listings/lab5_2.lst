@@ -1,0 +1,64 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             lab5_2, code
+    2 00000000                 entry
+    3 00000000         __main  proc
+    4 00000000                 export           __main [weak]
+    5 00000000 F04F 0102       mov              r1, #2
+    6 00000004 F04F 0208       mov              r2, #8
+    7 00000008 F7FF FFFE       bl               sub1
+    8 0000000C F04F 0105       mov              r1, #5
+    9 00000010 F04F 0203       mov              r2, #3
+   10 00000014 F7FF FFFE       bl               sub1
+   11 00000018 E7FE            b                .
+   12 0000001A                 endp
+   13 0000001A         sub1    proc
+   14 0000001A EB01 0382       add              r3,r1,r2, LSL #2 ; r3=r1+r2*4
+   15 0000001E 4770            bx               lr
+   16 00000020                 endp
+   17 00000020                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab5_2.d -o.\objects\lab5_2.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab5_2.lst Lab5_2
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file Lab5_2.s
+   Uses
+      At line 4 in file Lab5_2.s
+Comment: __main used once
+lab5_2 00000000
+
+Symbol: lab5_2
+   Definitions
+      At line 1 in file Lab5_2.s
+   Uses
+      None
+Comment: lab5_2 unused
+sub1 0000001A
+
+Symbol: sub1
+   Definitions
+      At line 13 in file Lab5_2.s
+   Uses
+      At line 7 in file Lab5_2.s
+      At line 10 in file Lab5_2.s
+
+3 symbols
+338 symbols in table

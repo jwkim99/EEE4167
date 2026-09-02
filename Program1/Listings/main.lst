@@ -1,0 +1,168 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             projcode, code
+    2 00000000                 entry
+    3 00000000         __main  proc
+    4 00000000                 export           __main [weak]
+    5 00000000         ;---------------insert your code between the lines------
+                       -----------
+    6 00000000                 extern           itoa
+    7 00000000                 extern           atoi
+    8 00000000         ; itoa subroutine   
+    9 00000000 F8BF 102C 
+                       start   ldrh             r1, num1    ; load num1
+   10 00000004 F8BF 202A       ldrh             r2, num2    ; load num2
+   11 00000008 480A            ldr              r0, = sum   ; address of sum
+   12 0000000A EB01 0302       add              r3, r1, r2  ; adding num1 & num
+                                                            2
+   13 0000000E 6003            str              r3, [r0]    ; storing sum
+   14 00000010 4809            ldr              r0, = sumascii ; store address
+   15 00000012 F04F 0410       mov              r4, #16     ; base select
+   16 00000016 B419            push             {r0,r3,r4}  ; passing parameter
+                                                            
+   17 00000018 F7FF FFFE       bl               itoa        ; call subroutine
+   18 0000001C B003            add              sp, #12     ; SP initialization
+                                                             
+   19 0000001E         ; atoi subroutine
+   20 0000001E F04F 040A       mov              r4, #10     ; base select
+   21 00000022 B411            push             {r0,r4}
+   22 00000024 F7FF FFFE       bl               atoi
+   23 00000028 BC20            pop              {r5}
+   24 0000002A B001            add              sp, #4
+   25 0000002C         ;-------------------------------------------------------
+                       -----------
+   26 0000002C E7FE    here    b                here
+   27 0000002E                 endp
+   28 0000002E 00 00           align
+   29 00000030 17 00   num1    dcw              23
+   30 00000032 64 00   num2    dcw              100
+   31 00000034                 align
+   32 00000034 00000000 
+              00000000         area             projdata, data
+   33 00000000 00000000 
+                       sum     dcd              0
+   34 00000004 00 00 00 
+              00       sumascii
+                               space            4
+   35 00000008                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\main.d -o.\objects\main.o -I.\RTE\Device\STM32F103RB -I.\RTE\_Targ
+et_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Includ
+e -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --pred
+efine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 
+1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file main.s
+   Uses
+      At line 4 in file main.s
+Comment: __main used once
+here 0000002C
+
+Symbol: here
+   Definitions
+      At line 26 in file main.s
+   Uses
+      At line 26 in file main.s
+Comment: here used once
+num1 00000030
+
+Symbol: num1
+   Definitions
+      At line 29 in file main.s
+   Uses
+      At line 9 in file main.s
+Comment: num1 used once
+num2 00000032
+
+Symbol: num2
+   Definitions
+      At line 30 in file main.s
+   Uses
+      At line 10 in file main.s
+Comment: num2 used once
+projcode 00000000
+
+Symbol: projcode
+   Definitions
+      At line 1 in file main.s
+   Uses
+      None
+Comment: projcode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 9 in file main.s
+   Uses
+      None
+Comment: start unused
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+projdata 00000000
+
+Symbol: projdata
+   Definitions
+      At line 32 in file main.s
+   Uses
+      None
+Comment: projdata unused
+sum 00000000
+
+Symbol: sum
+   Definitions
+      At line 33 in file main.s
+   Uses
+      At line 11 in file main.s
+Comment: sum used once
+sumascii 00000004
+
+Symbol: sumascii
+   Definitions
+      At line 34 in file main.s
+   Uses
+      At line 14 in file main.s
+Comment: sumascii used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+atoi 00000000
+
+Symbol: atoi
+   Definitions
+      At line 7 in file main.s
+   Uses
+      At line 22 in file main.s
+Comment: atoi used once
+itoa 00000000
+
+Symbol: itoa
+   Definitions
+      At line 6 in file main.s
+   Uses
+      At line 17 in file main.s
+Comment: itoa used once
+2 symbols
+348 symbols in table

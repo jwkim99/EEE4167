@@ -1,0 +1,133 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             subcode, code
+    2 00000000                 entry
+    3 00000000         itoa    proc
+    4 00000000                 export           itoa
+    5 00000000         ;-----------------------------------------
+    6 00000000 B53F            push             {r0-r5,lr}
+    7 00000002 9807            ldr              r0, [sp, #28] ; store address
+    8 00000004 9908            ldr              r1, [sp, #32] ; integer
+    9 00000006 9A09            ldr              r2, [sp, #36] ; base
+   10 00000008 F04F 0500       mov              r5, #0      ; count
+   11 0000000C         ; calculating conversion
+   12 0000000C FBB1 F3F2 
+                       lp1     udiv             r3, r1, r2  ; quotient
+   13 00000010 FB02 1413       mls              r4, r2, r3, r1 ; remainder
+   14 00000014 B410            push             {r4}        ; storing remainder
+                                                             into stack
+   15 00000016 2B00            cmp              r3, #0      ; check whether quo
+                                                            tient == 0
+   16 00000018 F105 0501       add              r5, #1      ; increase count
+   17 0000001C 4619            mov              r1, r3      ; update dividend
+   18 0000001E D1F5            bne              lp1         ; iterate if quotie
+                                                            nt != 0
+   19 00000020         ; initializing location
+   20 00000020 6003            str              r3, [r0]
+   21 00000022         ; storing ascii code
+   22 00000022 4908            ldr              r1, =ascii
+   23 00000024 BC10    lp2     pop              {r4}        ; load remainder (d
+                                                            ecimal digit) 
+   24 00000026 3D01            subs             r5, #1      ; decrease count
+   25 00000028 5D0C            ldrb             r4, [r1, r4] ; convert to ascii
+                                                             code
+   26 0000002A F800 4B01       strb             r4, [r0], #1 
+                                                            ; store ascii code 
+                                                            
+   27 0000002E D1F9            bne              lp2
+   28 00000030         ; return
+   29 00000030 BD3F    return  pop              {r0-r5,pc}
+   30 00000032         ;-----------------------------------------
+   31 00000032                 endp
+   32 00000032 00 00           align
+   33 00000034 30      ascii   dcb              0x30        ;'0'
+   34 00000035 31              dcb              0x31        ;'1'
+   35 00000036 32              dcb              0x32        ;'2'
+   36 00000037 33              dcb              0x33        ;'3'
+   37 00000038 34              dcb              0x34        ;'4'
+   38 00000039 35              dcb              0x35        ;'5'
+   39 0000003A 36              dcb              0x36        ;'6'
+   40 0000003B 37              dcb              0x37        ;'7'
+   41 0000003C 38              dcb              0x38        ;'8'
+   42 0000003D 39              dcb              0x39        ;'9'
+   43 0000003E 41              dcb              0x41        ;'A'
+   44 0000003F 42              dcb              0x42        ;'B'
+   45 00000040 43              dcb              0x43        ;'C'
+   46 00000041 44              dcb              0x44        ;'D'
+   47 00000042 45              dcb              0x45        ;'E'
+   48 00000043 46              dcb              0x46        ;'F'
+   49 00000044                 end
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+nd=.\objects\itoa.d -o.\objects\itoa.o -I.\RTE\Device\STM32F103RB -I.\RTE\_Targ
+et_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Includ
+e -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --pred
+efine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 
+1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\itoa.lst itoa.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ascii 00000034
+
+Symbol: ascii
+   Definitions
+      At line 33 in file itoa.s
+   Uses
+      At line 22 in file itoa.s
+Comment: ascii used once
+itoa 00000000
+
+Symbol: itoa
+   Definitions
+      At line 3 in file itoa.s
+   Uses
+      At line 4 in file itoa.s
+Comment: itoa used once
+lp1 0000000C
+
+Symbol: lp1
+   Definitions
+      At line 12 in file itoa.s
+   Uses
+      At line 18 in file itoa.s
+Comment: lp1 used once
+lp2 00000024
+
+Symbol: lp2
+   Definitions
+      At line 23 in file itoa.s
+   Uses
+      At line 27 in file itoa.s
+Comment: lp2 used once
+return 00000030
+
+Symbol: return
+   Definitions
+      At line 29 in file itoa.s
+   Uses
+      None
+Comment: return unused
+subcode 00000000
+
+Symbol: subcode
+   Definitions
+      At line 1 in file itoa.s
+   Uses
+      None
+Comment: subcode unused
+6 symbols
+343 symbols in table

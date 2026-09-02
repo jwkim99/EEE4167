@@ -1,0 +1,106 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             lab4_3, code
+    2 00000000                 entry
+    3 00000000         __main  proc
+    4 00000000                 export           __main [weak]
+    5 00000000         start
+    6 00000000 480D            ldr              r0, data1
+    7 00000002 F36F 100A       bfc              r0, #4, #7
+    8 00000006         ;
+    9 00000006 480C            ldr              r0, data1
+   10 00000008 490C            ldr              r1, data2
+   11 0000000A F341 2007       sbfx             r0, r1, #8, #8
+   12 0000000E         ;
+   13 0000000E 480B            ldr              r0, data2
+   14 00000010 BA01            rev              r1, r0
+   15 00000012         ;
+   16 00000012 480A            ldr              r0, data2
+   17 00000014 4908            ldr              r1, data1
+   18 00000016 B242            sxtb             r2, r0
+   19 00000018 B202            sxth             r2, r0
+   20 0000001A B282            uxth             r2, r0
+   21 0000001C B24A            sxtb             r2, r1
+   22 0000001E         ;
+   23 0000001E F04F 0102       mov              r1, #0x2
+   24 00000022 1E49            subs             r1, r1, #0x1
+   25 00000024 1E49            subs             r1, r1, #0x1
+   26 00000026 1E49            subs             r1, r1, #0x1
+   27 00000028 1E49            subs             r1, r1, #0x1
+   28 0000002A         ;
+   29 0000002A F3EF 8000       mrs              r0, APSR
+   30 0000002E EA00 6004       and              r0, r0, r4, lsl #24
+   31 00000032 F380 8800       msr              APSR_nzcvq, r0
+   32 00000036         ;
+   33 00000036 E7FE            b                .
+   34 00000038                 endp
+   35 00000038                 align
+   36 00000038 B1234567 
+                       data1   dcd              0xb1234567
+   37 0000003C BABEFACE 
+                       data2   dcd              0xbabeface
+   38 00000040                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab4_3.d -o.\objects\lab4_3.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab4_3.lst lab4_3
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file lab4_3.s
+   Uses
+      At line 4 in file lab4_3.s
+Comment: __main used once
+data1 00000038
+
+Symbol: data1
+   Definitions
+      At line 36 in file lab4_3.s
+   Uses
+      At line 6 in file lab4_3.s
+      At line 9 in file lab4_3.s
+      At line 17 in file lab4_3.s
+
+data2 0000003C
+
+Symbol: data2
+   Definitions
+      At line 37 in file lab4_3.s
+   Uses
+      At line 10 in file lab4_3.s
+      At line 13 in file lab4_3.s
+      At line 16 in file lab4_3.s
+
+lab4_3 00000000
+
+Symbol: lab4_3
+   Definitions
+      At line 1 in file lab4_3.s
+   Uses
+      None
+Comment: lab4_3 unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 5 in file lab4_3.s
+   Uses
+      None
+Comment: start unused
+5 symbols
+340 symbols in table

@@ -1,0 +1,134 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             midcode, code
+    2 00000000                 extern           timeofday
+    3 00000000                 export           __main [weak]
+    4 00000000                 entry
+    5 00000000         __main  proc
+    6 00000000 F8DF D018       ldr              sp, =0x20000080
+    7 00000004 4806            ldr              r0, =hour
+    8 00000006 4907            ldr              r1, =min
+    9 00000008 4A07            ldr              r2, =sec
+   10 0000000A 4B08            ldr              r3, =count
+   11 0000000C B40F            push             {r0-r3}
+   12 0000000E F7FF FFFE       bl               timeofday
+   13 00000012 B004            add              sp,#0x10
+   14 00000014         ;
+   15 00000014 E7FE    here    b                here
+   16 00000016                 endp
+   17 00000016 00 00 000144B1 
+                       count   dcd              83121
+   18 0000001C 20000080 
+              00000000 
+              00000000 
+              00000000 
+              00000000         area             middata, data
+   19 00000000 00 00   hour    dcw              0
+   20 00000002 00 00   min     dcw              0
+   21 00000004 00 00   sec     dcw              0
+   22 00000006                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\main.d -o.\objects\main.o -I.\RTE\Device\STM32F103RB -I.\RTE\_Targ
+et_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Includ
+e -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --pred
+efine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 
+1" --predefine="STM32F10X_MD_VL SETA 1" --list=.\listings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 5 in file main.s
+   Uses
+      At line 3 in file main.s
+Comment: __main used once
+count 00000018
+
+Symbol: count
+   Definitions
+      At line 17 in file main.s
+   Uses
+      At line 10 in file main.s
+Comment: count used once
+here 00000014
+
+Symbol: here
+   Definitions
+      At line 15 in file main.s
+   Uses
+      At line 15 in file main.s
+Comment: here used once
+midcode 00000000
+
+Symbol: midcode
+   Definitions
+      At line 1 in file main.s
+   Uses
+      None
+Comment: midcode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+hour 00000000
+
+Symbol: hour
+   Definitions
+      At line 19 in file main.s
+   Uses
+      At line 7 in file main.s
+Comment: hour used once
+middata 00000000
+
+Symbol: middata
+   Definitions
+      At line 18 in file main.s
+   Uses
+      None
+Comment: middata unused
+min 00000002
+
+Symbol: min
+   Definitions
+      At line 20 in file main.s
+   Uses
+      At line 8 in file main.s
+Comment: min used once
+sec 00000004
+
+Symbol: sec
+   Definitions
+      At line 21 in file main.s
+   Uses
+      At line 9 in file main.s
+Comment: sec used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+timeofday 00000000
+
+Symbol: timeofday
+   Definitions
+      At line 2 in file main.s
+   Uses
+      At line 12 in file main.s
+Comment: timeofday used once
+1 symbol
+346 symbols in table

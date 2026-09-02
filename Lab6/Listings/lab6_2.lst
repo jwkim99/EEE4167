@@ -1,0 +1,126 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 20000100 
+                       STACK_BASE
+                               EQU              0x20000100
+    2 00000000                 area             lab6_2,code
+    3 00000000                 entry
+    4 00000000         __main  proc
+    5 00000000                 export           __main [weak]
+    6 00000000 F8DF D034 
+                       start   ldr              sp, =STACK_BASE
+    7 00000004 F241 2134       ldr              r1, =0x1234
+    8 00000008 F244 3221       ldr              r2, =0x4321
+    9 0000000C B406            stmfd            sp!, {r2,r1}
+   10 0000000E F7FF FFFE       bl               swap
+   11 00000012 BC06            ldmfd            sp!, {r1, r2}
+   12 00000014         ; doing something here using the result
+   13 00000014 4909            ldr              r1, =-0x1234
+   14 00000016 4A0A            ldr              r2, =-0x4321
+   15 00000018 B406            stmfd            sp!, {r1, r2}
+   16 0000001A F7FF FFFE       bl               swap
+   17 0000001E BC06            ldmfd            sp!, {r1, r2}
+   18 00000020         ; doing something here using the result
+   19 00000020 E7FE    stop    b                stop
+   20 00000022                 endp
+   21 00000022         swap    proc
+   22 00000022 B570            stmfd            sp!, {r4-r6,lr}
+   23 00000024 9C04            ldr              r4, [sp, #0x10]
+   24 00000026 9D05            ldr              r5, [sp, #0x14]
+   25 00000028 42AC            cmp              r4, r5
+   26 0000002A DC04            bgt              r2m
+   27 0000002C 462E            mov              r6, r5
+   28 0000002E 4625            mov              r5, r4
+   29 00000030 4634            mov              r4, r6
+   30 00000032 9404            str              r4, [sp,#0x10]
+   31 00000034 9505            str              r5, [sp,#0x14]
+   32 00000036 BD70    r2m     ldmfd            sp!, {r4-r6,pc}
+   33 00000038                 endp
+   34 00000038                 end
+              20000100 
+              FFFFEDCC 
+              FFFFBCDF 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab6_2.d -o.\objects\lab6_2.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab6_2.lst Lab6_2
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 4 in file Lab6_2.s
+   Uses
+      At line 5 in file Lab6_2.s
+Comment: __main used once
+lab6_2 00000000
+
+Symbol: lab6_2
+   Definitions
+      At line 2 in file Lab6_2.s
+   Uses
+      None
+Comment: lab6_2 unused
+r2m 00000036
+
+Symbol: r2m
+   Definitions
+      At line 32 in file Lab6_2.s
+   Uses
+      At line 26 in file Lab6_2.s
+Comment: r2m used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 6 in file Lab6_2.s
+   Uses
+      None
+Comment: start unused
+stop 00000020
+
+Symbol: stop
+   Definitions
+      At line 19 in file Lab6_2.s
+   Uses
+      At line 19 in file Lab6_2.s
+Comment: stop used once
+swap 00000022
+
+Symbol: swap
+   Definitions
+      At line 21 in file Lab6_2.s
+   Uses
+      At line 10 in file Lab6_2.s
+      At line 16 in file Lab6_2.s
+
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+STACK_BASE 20000100
+
+Symbol: STACK_BASE
+   Definitions
+      At line 1 in file Lab6_2.s
+   Uses
+      At line 6 in file Lab6_2.s
+Comment: STACK_BASE used once
+1 symbol
+344 symbols in table

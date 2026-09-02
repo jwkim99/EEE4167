@@ -1,0 +1,77 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             subcode, code
+    2 00000000                 entry
+    3 00000000         atoi    proc
+    4 00000000                 export           atoi
+    5 00000000         ;-----------------------------------------
+    6 00000000 B50F            push             {r0-r3,lr}
+    7 00000002 9905            ldr              r1, [sp, #20] ; ascii address
+    8 00000004 9A06            ldr              r2, [sp, #24] ; base
+    9 00000006 F04F 0300       mov              r3, #0      ; initial integer
+   10 0000000A F811 0B01 
+                       lp      ldrb             r0, [r1], #1 ; load 1 byte
+   11 0000000E 2800            cmp              r0, #0x00   ; if ascii code is 
+                                                            NULL
+   12 00000010 D004            beq              ret
+   13 00000012 F1A0 0030       sub              r0, #0x30   ; ascii_code --> de
+                                                            cimal
+   14 00000016 FB03 0302       mla              r3, r3, r2, r0
+   15 0000001A E7F6            b                lp
+   16 0000001C 9305    ret     str              r3, [sp, #20] ; store integer v
+                                                            alue 
+   17 0000001E BD0F            pop              {r0-r3,pc}
+   18 00000020         ;-----------------------------------------
+   19 00000020                 endp
+   20 00000020                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\atoi.d -o.\objects\atoi.o -I.\RTE\Device\STM32F103RB -I.\RTE\_Targ
+et_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Includ
+e -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --pred
+efine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 
+1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\atoi.lst atoi.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+atoi 00000000
+
+Symbol: atoi
+   Definitions
+      At line 3 in file atoi.s
+   Uses
+      At line 4 in file atoi.s
+Comment: atoi used once
+lp 0000000A
+
+Symbol: lp
+   Definitions
+      At line 10 in file atoi.s
+   Uses
+      At line 15 in file atoi.s
+Comment: lp used once
+ret 0000001C
+
+Symbol: ret
+   Definitions
+      At line 16 in file atoi.s
+   Uses
+      At line 12 in file atoi.s
+Comment: ret used once
+subcode 00000000
+
+Symbol: subcode
+   Definitions
+      At line 1 in file atoi.s
+   Uses
+      None
+Comment: subcode unused
+4 symbols
+339 symbols in table

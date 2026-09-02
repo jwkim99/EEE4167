@@ -1,0 +1,140 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             lab5_ex, code
+    2 00000000                 entry
+    3 00000000         __main  proc
+    4 00000000                 export           __main [weak]
+    5 00000000         ;   ; Data address & Loop count & initial value
+    6 00000000 A00A            adr              r0, data1
+    7 00000002 F04F 0110       mov              r1, #0x10   ; 16 times of itera
+                                                            tion
+    8 00000006 F04F 02FF       mov              r2, #0xFF   ; initial minumum v
+                                                            alue
+    9 0000000A F04F 0300       mov              r3, #0x00   ; initial maximum v
+                                                            alue
+   10 0000000E         ;   ; Define Loop
+   11 0000000E F810 5B01 
+                       loop    ldrb             r5, [r0], #1
+   12 00000012 4295            cmp              r5, r2
+   13 00000014 BFB8 462A       movlt            r2, r5
+   14 00000018 429D            cmp              r5, r3
+   15 0000001A BFC8 462B       movgt            r3, r5
+   16 0000001E 3901            subs             r1, #1
+   17 00000020 D1F5            bne              loop
+   18 00000022         ;   ; Store data
+   19 00000022 4C06            ldr              r4, =data_s
+   20 00000024 7022            strb             r2, [r4]
+   21 00000026 7063            strb             r3, [r4, #1]
+   22 00000028 E7FE            b                .
+   23 0000002A 00 00 56781234 
+                       data1   dcd              0x56781234
+   24 00000030 F7C23D8A 
+                       data2   dcd              0xf7c23d8a
+   25 00000034 6B9A105F 
+                       data3   dcd              0x6b9a105f
+   26 00000038 A8E6D47B 
+                       data4   dcd              0xa8e6d47b
+   27 0000003C                 endp
+   28 0000003C                 align
+   29 0000003C 00000000        area             lab5t_data, data
+   30 00000000 00 00   data_s  space            2
+   31 00000002                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab5_ex.d -o.\objects\lab5_ex.o -I.\RTE\Device\STM32F103RB -I.\RTE
+\_Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\
+Include -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Devic
+e\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" 
+--predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_
+ SETA 1" --predefine="STM32F10X_MD_VL SETA 1" --list=.\listings\lab5_ex.lst Lab
+5_ex.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file Lab5_ex.s
+   Uses
+      At line 4 in file Lab5_ex.s
+Comment: __main used once
+data1 0000002C
+
+Symbol: data1
+   Definitions
+      At line 23 in file Lab5_ex.s
+   Uses
+      At line 6 in file Lab5_ex.s
+Comment: data1 used once
+data2 00000030
+
+Symbol: data2
+   Definitions
+      At line 24 in file Lab5_ex.s
+   Uses
+      None
+Comment: data2 unused
+data3 00000034
+
+Symbol: data3
+   Definitions
+      At line 25 in file Lab5_ex.s
+   Uses
+      None
+Comment: data3 unused
+data4 00000038
+
+Symbol: data4
+   Definitions
+      At line 26 in file Lab5_ex.s
+   Uses
+      None
+Comment: data4 unused
+lab5_ex 00000000
+
+Symbol: lab5_ex
+   Definitions
+      At line 1 in file Lab5_ex.s
+   Uses
+      None
+Comment: lab5_ex unused
+loop 0000000E
+
+Symbol: loop
+   Definitions
+      At line 11 in file Lab5_ex.s
+   Uses
+      At line 17 in file Lab5_ex.s
+Comment: loop used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data_s 00000000
+
+Symbol: data_s
+   Definitions
+      At line 30 in file Lab5_ex.s
+   Uses
+      At line 19 in file Lab5_ex.s
+Comment: data_s used once
+lab5t_data 00000000
+
+Symbol: lab5t_data
+   Definitions
+      At line 29 in file Lab5_ex.s
+   Uses
+      None
+Comment: lab5t_data unused
+2 symbols
+346 symbols in table

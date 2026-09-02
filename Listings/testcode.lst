@@ -1,0 +1,86 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             lab2_1, code
+    2 00000000                 entry
+    3 00000000         __main  proc
+    4 00000000                 export           __main[weak]
+    5 00000000 F04F 0108 
+                       start   mov              r1, #8
+    6 00000004 F04F 0224       mov              r2, #36
+    7 00000008         
+    8 00000008 4291    gcd     cmp              r1, r2
+    9 0000000A BFB8 1A52       sublt            r2, r1
+   10 0000000E BFC8 1A89       subgt            r1, r2
+   11 00000012 D1F9            bne              gcd
+   12 00000014         ;  
+   13 00000014         ;gcd  cmp  r1, r2;
+   14 00000014         ;  beq  done
+   15 00000014         ;  blt  less
+   16 00000014         ;  sub  r1, r1, r2
+   17 00000014         ;  b  gcd
+   18 00000014         ;less sub  r2, r2, r1
+   19 00000014         ;  b  gcd
+   20 00000014         
+   21 00000014 E7FE    done    b                .
+   22 00000016                 endp
+   23 00000016                 end
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\testcode.d -o.\objects\testcode.o -I.\RTE\Device\STM32F103RB -I.\R
+TE\_Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Cor
+e\Include -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Dev
+ice\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538
+" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RT
+E_ SETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\testcode.lst 
+TestCode.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file TestCode.s
+   Uses
+      At line 4 in file TestCode.s
+Comment: __main used once
+done 00000014
+
+Symbol: done
+   Definitions
+      At line 21 in file TestCode.s
+   Uses
+      None
+Comment: done unused
+gcd 00000008
+
+Symbol: gcd
+   Definitions
+      At line 8 in file TestCode.s
+   Uses
+      At line 11 in file TestCode.s
+Comment: gcd used once
+lab2_1 00000000
+
+Symbol: lab2_1
+   Definitions
+      At line 1 in file TestCode.s
+   Uses
+      None
+Comment: lab2_1 unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 5 in file TestCode.s
+   Uses
+      None
+Comment: start unused
+5 symbols
+340 symbols in table

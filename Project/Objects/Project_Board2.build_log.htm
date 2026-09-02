@@ -1,0 +1,180 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: •ÏVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Kim JoonWon, Sogang University, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\EEE4167\Project\Project_Board2.uvprojx
+Project File Date:  06/16/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+RTE/Device/STM32F103RB/system_stm32f10x.c(64): warning: In file included from...
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+RTE/Device/STM32F103RB/system_stm32f10x.c(166): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+            ^
+RTE/Device/STM32F103RB/system_stm32f10x.c(166): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+    ^
+4 warnings generated.
+compiling system_stm32f10x.c...
+Project_Board2.c(1): warning: In file included from...
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+Project_Board2.c(33): warning: no previous extern declaration for non-static variable 'font5x4' [-Wmissing-variable-declarations]
+u8 font5x4 [18][5] = {   // font data
+   ^
+Project_Board2.c(33): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8 font5x4 [18][5] = {   // font data
+^
+Project_Board2.c(59): warning: no previous extern declaration for non-static variable 'mode' [-Wmissing-variable-declarations]
+Type_mode mode = Disconnect;
+          ^
+Project_Board2.c(59): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Type_mode mode = Disconnect;
+^
+Project_Board2.c(60): warning: no previous extern declaration for non-static variable 'IsStable' [-Wmissing-variable-declarations]
+u8  IsStable = 0;
+    ^
+Project_Board2.c(60): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8  IsStable = 0;
+^
+Project_Board2.c(115): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+      u8 i;
+         ^
+Project_Board2.c(136): warning: no previous prototype for function 'TIM1_UP_IRQHandler' [-Wmissing-prototypes]
+void TIM1_UP_IRQHandler(void) {   // 8Hz - Blinking & brightness control
+     ^
+Project_Board2.c(136): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM1_UP_IRQHandler(void) {   // 8Hz - Blinking & brightness control
+^
+static 
+Project_Board2.c(154): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                  GPIOC->ODR &= ~(0xFF);
+                             ~~ ^~~~~~~
+Project_Board2.c(156): warning: implicit conversion loses integer precision: 'u32' (aka 'unsigned int') to 'u16' (aka 'unsigned short') [-Wimplicit-int-conversion]
+                  d_col = (display[d_row] >> 4);
+                        ~  ~~~~~~~~~~~~~~~^~~~
+Project_Board2.c(162): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                  GPIOC->ODR &= ~(0xFF);
+                             ~~ ^~~~~~~
+Project_Board2.c(149): warning: no previous prototype for function 'TIM1_CC_IRQHandler' [-Wmissing-prototypes]
+void TIM1_CC_IRQHandler(void) { // Dot matrix scanning
+     ^
+Project_Board2.c(149): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM1_CC_IRQHandler(void) { // Dot matrix scanning
+^
+static 
+Project_Board2.c(181): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                  data = USART1->DR;      // FE reset
+                       ~ ~~~~~~~~^~
+Project_Board2.c(189): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'u8' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                  data = USART1->DR;
+                       ~ ~~~~~~~~^~
+Project_Board2.c(217): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+Project_Board2.c(178): warning: no previous prototype for function 'USART1_IRQHandler' [-Wmissing-prototypes]
+void USART1_IRQHandler(void) {
+     ^
+Project_Board2.c(178): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void USART1_IRQHandler(void) {
+^
+static 
+Project_Board2.c(55): warning: no previous extern declaration for non-static variable 'display' [-Wmissing-variable-declarations]
+u32 display[5];               // Display pattern
+    ^
+Project_Board2.c(55): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u32 display[5];               // Display pattern
+^
+Project_Board2.c(56): warning: no previous extern declaration for non-static variable 'rx_data' [-Wmissing-variable-declarations]
+Type_digit      rx_data[8];               // Recieved data
+                ^
+Project_Board2.c(56): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Type_digit      rx_data[8];               // Recieved data
+^
+Project_Board2.c(61): warning: no previous extern declaration for non-static variable 'n_receive' [-Wmissing-variable-declarations]
+u8  n_receive;               // number of recieved data
+    ^
+Project_Board2.c(61): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8  n_receive;               // number of recieved data
+^
+Project_Board2.c(62): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
+u8    data;
+      ^
+Project_Board2.c(62): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+u8    data;
+^
+20 warnings generated.
+compiling Project_Board2.c...
+linking...
+Program Size: Code=2228 RO-data=268 RW-data=92 ZI-data=1672  
+".\Objects\Project_Board2.axf" - 0 Error(s), 24 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103RB
+  ./RTE/_Target_1
+  C:/Users/jwkim/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/jwkim/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

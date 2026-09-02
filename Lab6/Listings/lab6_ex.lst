@@ -1,0 +1,134 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 20000100 
+                       STACK_BASE
+                               EQU              0x20000100
+    2 00000000                 area             lab6_ex, code
+    3 00000000                 entry
+    4 00000000         __main  proc
+    5 00000000                 export           __main [weak]
+    6 00000000 F8DF D044 
+                       start   ldr              sp, =STACK_BASE
+    7 00000004 4911            ldr              r1, =-0x2345
+    8 00000006 4A12            ldr              r2, =-0x1230
+    9 00000008         ;-----------------;
+   10 00000008 B406            push             {r1,r2}
+   11 0000000A F7FF FFFE       bl               diff
+   12 0000000E BC01            pop              {r0}
+   13 00000010 B001            add              sp, #4
+   14 00000012         ;-----------------;
+   15 00000012 E7FE    stop    b                stop
+   16 00000014                 endp
+   17 00000014         ;-----------------;
+   18 00000014         diff    proc
+   19 00000014 B518            push             {r3,r4,lr}
+   20 00000016 9B03            ldr              r3, [sp,#12]
+   21 00000018 9C04            ldr              r4, [sp,#16]
+   22 0000001A 42A3            cmp              r3, r4
+   23 0000001C BFA7            ittee            GE
+   24 0000001E F84D 3D04       strge            r3, [sp,#-4]!
+   25 00000022 F84D 4D04       strge            r4, [sp,#-4]!
+   26 00000026 F84D 4D04       strlt            r4, [sp,#-4]!
+   27 0000002A F84D 3D04       strlt            r3, [sp,#-4]!
+   28 0000002E F7FF FFFE       bl               subtract
+   29 00000032 BC10            pop              {r4}
+   30 00000034 B001            add              sp, #4
+   31 00000036 9403            str              r4, [sp,#12]
+   32 00000038 BD18            pop              {r3,r4,pc}
+   33 0000003A                 endp
+   34 0000003A         subtract
+                               proc
+   35 0000003A B560            push             {r5,r6,lr}
+   36 0000003C 9D03            ldr              r5, [sp,#12]
+   37 0000003E 9E04            ldr              r6, [sp,#16]
+   38 00000040 EBA6 0605       sub              r6, r6, r5  ;
+   39 00000044 9603            str              r6, [sp,#12]
+   40 00000046 BD60            pop              {r5,r6,pc}
+   41 00000048                 endp
+   42 00000048         ;-----------------;
+   43 00000048                 end
+              20000100 
+              FFFFDCBB 
+              FFFFEDD0 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab6_ex.d -o.\objects\lab6_ex.o -I.\RTE\Device\STM32F103RB -I.\RTE
+\_Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\
+Include -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Devic
+e\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" 
+--predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_
+ SETA 1" --list=.\listings\lab6_ex.lst Lab6_ex.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 4 in file Lab6_ex.s
+   Uses
+      At line 5 in file Lab6_ex.s
+Comment: __main used once
+diff 00000014
+
+Symbol: diff
+   Definitions
+      At line 18 in file Lab6_ex.s
+   Uses
+      At line 11 in file Lab6_ex.s
+Comment: diff used once
+lab6_ex 00000000
+
+Symbol: lab6_ex
+   Definitions
+      At line 2 in file Lab6_ex.s
+   Uses
+      None
+Comment: lab6_ex unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 6 in file Lab6_ex.s
+   Uses
+      None
+Comment: start unused
+stop 00000012
+
+Symbol: stop
+   Definitions
+      At line 15 in file Lab6_ex.s
+   Uses
+      At line 15 in file Lab6_ex.s
+Comment: stop used once
+subtract 0000003A
+
+Symbol: subtract
+   Definitions
+      At line 34 in file Lab6_ex.s
+   Uses
+      At line 28 in file Lab6_ex.s
+Comment: subtract used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+STACK_BASE 20000100
+
+Symbol: STACK_BASE
+   Definitions
+      At line 1 in file Lab6_ex.s
+   Uses
+      At line 6 in file Lab6_ex.s
+Comment: STACK_BASE used once
+1 symbol
+343 symbols in table

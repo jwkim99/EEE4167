@@ -1,0 +1,142 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 20000100 
+                       STACK_BASE
+                               EQU              0x20000100
+    2 00000000 20000100 
+                       ARRAY_BASE
+                               EQU              0X20000100
+    3 00000000 00000008 
+                       ARRAY_SIZE
+                               EQU              0X8
+    4 00000000                 area             lab6_3, code
+    5 00000000                 extern           fill_array
+    6 00000000                 extern           fill_pointer
+    7 00000000                 entry
+    8 00000000         __main  proc
+    9 00000000                 export           __main [weak]
+   10 00000000 F8DF D01C 
+                       start   ldr              sp, =STACK_BASE
+   11 00000004 4A06            ldr              r2, =ARRAY_BASE
+   12 00000006 F04F 0308       ldr              r3, =ARRAY_SIZE
+   13 0000000A 4C06            ldr              r4, =0x5555aaaa
+   14 0000000C B41C            push             {r2-r4}
+   15 0000000E F7FF FFFE       bl               fill_array
+   16 00000012 B003            add              sp, #12
+   17 00000014         ;
+   18 00000014 4C04            ldr              r4, =0x77337733
+   19 00000016 B41C            push             {r2-r4}
+   20 00000018 F7FF FFFE       bl               fill_pointer
+   21 0000001C B003            add              sp, #12
+   22 0000001E E7FE    stop    b                stop
+   23 00000020                 endp
+   24 00000020                 end
+              20000100 
+              5555AAAA 
+              77337733 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab6_3.d -o.\objects\lab6_3.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab6_3.lst Lab6_3
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 8 in file Lab6_3.s
+   Uses
+      At line 9 in file Lab6_3.s
+Comment: __main used once
+lab6_3 00000000
+
+Symbol: lab6_3
+   Definitions
+      At line 4 in file Lab6_3.s
+   Uses
+      None
+Comment: lab6_3 unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 10 in file Lab6_3.s
+   Uses
+      None
+Comment: start unused
+stop 0000001E
+
+Symbol: stop
+   Definitions
+      At line 22 in file Lab6_3.s
+   Uses
+      At line 22 in file Lab6_3.s
+Comment: stop used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+ARRAY_BASE 20000100
+
+Symbol: ARRAY_BASE
+   Definitions
+      At line 2 in file Lab6_3.s
+   Uses
+      At line 11 in file Lab6_3.s
+Comment: ARRAY_BASE used once
+ARRAY_SIZE 00000008
+
+Symbol: ARRAY_SIZE
+   Definitions
+      At line 3 in file Lab6_3.s
+   Uses
+      At line 12 in file Lab6_3.s
+Comment: ARRAY_SIZE used once
+STACK_BASE 20000100
+
+Symbol: STACK_BASE
+   Definitions
+      At line 1 in file Lab6_3.s
+   Uses
+      At line 10 in file Lab6_3.s
+Comment: STACK_BASE used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+fill_array 00000000
+
+Symbol: fill_array
+   Definitions
+      At line 5 in file Lab6_3.s
+   Uses
+      At line 15 in file Lab6_3.s
+Comment: fill_array used once
+fill_pointer 00000000
+
+Symbol: fill_pointer
+   Definitions
+      At line 6 in file Lab6_3.s
+   Uses
+      At line 20 in file Lab6_3.s
+Comment: fill_pointer used once
+2 symbols
+346 symbols in table

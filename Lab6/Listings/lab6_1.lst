@@ -1,0 +1,111 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 20000100 
+                       STACK_BASE
+                               EQU              0x20000100
+    2 00000000                 area             lab6_1, code
+    3 00000000                 entry
+    4 00000000         __main  proc
+    5 00000000                 export           __main [weak]
+    6 00000000 F8DF D028 
+                       start   ldr              sp,=STACK_BASE
+    7 00000004 F241 2134       ldr              r1, =0x1234
+    8 00000008 F244 3221       ldr              r2, =0x4321
+    9 0000000C F7FF FFFE       bl               swap
+   10 00000010         ; doing something here using the result
+   11 00000010 4907            ldr              r1, =-0x4321
+   12 00000012 4A08            ldr              r2, =-0x1234
+   13 00000014 F7FF FFFE       bl               swap
+   14 00000018         ; doing something here using the result
+   15 00000018         ;stop  b  stop
+   16 00000018                 endp
+   17 00000018         swap    proc
+   18 00000018 E8AD 4008       stmea            sp!, {r3, lr}
+   19 0000001C 4291            cmp              r1, r2
+   20 0000001E DC02            bgt              r2m
+   21 00000020 4613            mov              r3, r2
+   22 00000022 460A            mov              r2, r1
+   23 00000024 4619            mov              r1, r3
+   24 00000026 E93D 8008 
+                       r2m     ldmea            sp!, {r3, pc}
+   25 0000002A                 endp
+   26 0000002A                 end
+              00 00 20000100 
+              FFFFBCDF 
+              FFFFEDCC 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M3 --depe
+nd=.\objects\lab6_1.d -o.\objects\lab6_1.o -I.\RTE\Device\STM32F103RB -I.\RTE\_
+Target_1 -IC:\Users\jwkim\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
+clude -IC:\Users\jwkim\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\
+Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 538" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10x_MD_VL SETA 1" --list=.\listings\lab6_1.lst Lab6_1
+.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 4 in file Lab6_1.s
+   Uses
+      At line 5 in file Lab6_1.s
+Comment: __main used once
+lab6_1 00000000
+
+Symbol: lab6_1
+   Definitions
+      At line 2 in file Lab6_1.s
+   Uses
+      None
+Comment: lab6_1 unused
+r2m 00000026
+
+Symbol: r2m
+   Definitions
+      At line 24 in file Lab6_1.s
+   Uses
+      At line 20 in file Lab6_1.s
+Comment: r2m used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 6 in file Lab6_1.s
+   Uses
+      None
+Comment: start unused
+swap 00000018
+
+Symbol: swap
+   Definitions
+      At line 17 in file Lab6_1.s
+   Uses
+      At line 9 in file Lab6_1.s
+      At line 13 in file Lab6_1.s
+
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+STACK_BASE 20000100
+
+Symbol: STACK_BASE
+   Definitions
+      At line 1 in file Lab6_1.s
+   Uses
+      At line 6 in file Lab6_1.s
+Comment: STACK_BASE used once
+1 symbol
+343 symbols in table
